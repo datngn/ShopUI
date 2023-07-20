@@ -2,8 +2,9 @@ import {
   FavoriteBorderOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
-} from "@material-ui/icons";
-import styled from "styled-components";
+} from '@material-ui/icons';
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Info = styled.div`
   opacity: 0;
@@ -32,7 +33,7 @@ const Container = styled.div`
   background-color: #f5fbfd;
   position: relative;
 
-  &:hover ${Info}{
+  &:hover ${Info} {
     opacity: 1;
   }
 `;
@@ -71,17 +72,19 @@ const Product = ({ item }) => {
     <Container>
       <Circle />
       <Image src={item.img} />
-      <Info>
-        <Icon>
-          <ShoppingCartOutlined />
-        </Icon>
-        <Icon>
-          <SearchOutlined />
-        </Icon>
-        <Icon>
-          <FavoriteBorderOutlined />
-        </Icon>
-      </Info>
+      <NavLink to={{ pathname: '/product' }}>
+        <Info>
+          <Icon>
+            <ShoppingCartOutlined />
+          </Icon>
+          <Icon>
+            <SearchOutlined />
+          </Icon>
+          <Icon>
+            <FavoriteBorderOutlined />
+          </Icon>
+        </Info>
+      </NavLink>
     </Container>
   );
 };
